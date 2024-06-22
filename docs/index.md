@@ -1,6 +1,10 @@
-# Welcome to MkDocs
+# Introductory
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Welcome to Junior/Full L2 Docs Pages!
+
+This page was created with the hopes of helping both new and experienced technicians advance their knowledge and accelerate their salary increases.
+
+
 
 ## Commands
 
@@ -15,3 +19,5 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+## Scripts

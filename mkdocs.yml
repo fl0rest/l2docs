@@ -1,1 +1,25 @@
-site_name: My Docs
+site_name: MAPPS L2 Docs
+nav: 
+  - Home: index.md
+  - DNS (Domain Name System): dns.md
+  - WordPress: wordpress.md
+  - Magento: magento.md
+  - Premium Business Email: pbe.md
+  - CloudSites: cloudsites.md
+  - .bashrc: bashrc.md
+theme:
+  name: material
+  features:
+    - header.autohide
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+  palette:
+    scheme: slate
+    primary: lime
+  font:
+      text: Robot
+      code: Roboto Mono
+extra:
+  generator: false
+
