@@ -22,4 +22,7 @@ theme:
       code: Roboto Mono
 extra:
   generator: false
+plugins:
+    - encryptcontent:
+        global_password: 'lozinka1'
 
