@@ -1,4 +1,6 @@
-site_name: MAPPS L2 Docs
+# Project information
+site_name: J/L2 Docs
+site_url: https://xeman.github.io/l2docs/
 nav: 
   - Home: index.md
   - DNS (Domain Name System): dns.md
@@ -7,22 +9,28 @@ nav:
   - Premium Business Email: pbe.md
   - CloudSites: cloudsites.md
   - .bashrc: bashrc.md
+
+# Theme
 theme:
   name: material
   features:
-    - header.autohide
-    - navigation.tabs
-    - navigation.sections
     - navigation.top
+    - navigation.sections
   palette:
     scheme: slate
     primary: lime
+    
   font:
       text: Robot
       code: Roboto Mono
-extra:
-  generator: false
+
+# Plugins      
 plugins:
+    - search 
+    - offline 
     - encryptcontent:
+        title_prefix: ''
+        search_index: 'clear'
         global_password: 'lozinka1'
+    
 
