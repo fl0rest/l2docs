@@ -3,11 +3,21 @@ site_name: J/L2 Docs
 site_url: https://xeman.github.io/l2docs/
 nav: 
   - Home: index.md
-  - DNS (Domain Name System): dns.md
-  - WordPress: wordpress.md
-  - Magento: magento.md
-  - Premium Business Email: pbe.md
-  - CloudSites: cloudsites.md
+  - DNS: 
+    - 'Common records & lookup': dns.md
+  - Networking:
+    - 'Domains' : domains.md
+    - 'Basic Tools': ping-traceroute-netstat.md
+    - 'SSL': ssl.md
+    - 'TCP/UDP': TCP-vs-UDP.md
+    - 'ICMP' : icmp.md
+    - 'OSI 7-layer model': internet-models.md
+    - 'FTP': FTP.md
+    - 'HTTP/HTTPS': HTTP-HTTPS.md
+  - CMS: 
+    - 'WordPress': wordpress.md
+    - 'Magento': magento.md
+  - Email : emails.md
   - .bashrc: bashrc.md
   - Ports: ports.md
 # Theme
@@ -15,7 +25,9 @@ theme:
   name: material
   features:
     - navigation.top
+    - navigation.tracking
     - navigation.sections
+    - search.suggest
   palette:
     scheme: slate
     primary: lime
@@ -24,13 +36,21 @@ theme:
       text: Robot
       code: Roboto Mono
 
+# Markdown  
+  markdown_extensions:
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+
 # Plugins      
 plugins:
     - search 
     - offline 
-    - encryptcontent:
-        title_prefix: ''
-        search_index: 'clear'
-        global_password: 'lozinka1'
+    #- encryptcontent:
+    #    title_prefix: ''
+    #    search_index: 'clear'
+    #    global_password: 'lozinka1'
     
 

@@ -1,0 +1,1075 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://xeman.github.io/l2docs/internet-models.html">
+      
+      
+        <link rel="prev" href="TCP-vs-UDP.html">
+      
+      
+        <link rel="next" href="FTP.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+    
+    
+      
+        <title>OSI 7-layer model - J/L2 Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Robot:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Robot";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="lime" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#osi-seven-layer-model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="J/L2 Docs" class="md-header__button md-logo" aria-label="J/L2 Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            J/L2 Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OSI 7-layer model
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="J/L2 Docs" class="md-nav__button md-logo" aria-label="J/L2 Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    J/L2 Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    DNS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dns.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common records & lookup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="domains.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Domains
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ping-traceroute-netstat.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssl.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TCP-vs-UDP.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TCP/UDP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="icmp.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ICMP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    OSI 7-layer model
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="internet-models.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    OSI 7-layer model
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#layer-7-application-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 7. Application layer:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-6-presentation-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 6. Presentation layer:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-5-session-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 5. Session layer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-4-transport-layer-segmentation-and-reassembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 4: Transport Layer - Segmentation and Reassembly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-3-network-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 3: Network Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 3: Network Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-layer-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Layer protocols:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-2-data-link-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 2: Data-Link Layer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-1-physical-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 1: Physical layer
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FTP.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FTP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTTP-HTTPS.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP/HTTPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CMS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            CMS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wordpress.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WordPress
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="magento.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Magento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="emails.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Email
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="bashrc.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    .bashrc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#layer-7-application-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 7. Application layer:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-6-presentation-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 6. Presentation layer:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-5-session-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 5. Session layer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-4-transport-layer-segmentation-and-reassembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 4: Transport Layer - Segmentation and Reassembly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-3-network-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 3: Network Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 3: Network Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-layer-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Layer protocols:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-2-data-link-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 2: Data-Link Layer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-1-physical-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 1: Physical layer
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="osi-seven-layer-model">OSI Seven-Layer Model</h1>
+<p>OSI 7-layer model is a conceptual network format which encourages modular design in networking, meaning that each layer has as little to do with the operation of other layers as possible.</p>
+<p>Mnemonic: Please Do Not Throw Sausage Pizza Away. </p>
+<p>The seven layers include:</p>
+<ul>
+<li>Layer 7: Application</li>
+<li>Layer 6: Presentation</li>
+<li>Layer 5: Session</li>
+<li>Layer 4: Transport</li>
+<li>Layer 3: Network </li>
+<li>Layer 2: Data Link</li>
+<li>Layer 1: Physical</li>
+</ul>
+<h3 id="layer-7-application-layer">Layer  7. Application layer:</h3>
+<p>Being the topmost layer of the OSI model, this is the only layer that directly interacts with data from the user. Software applications like web browsers and email clients rely on the application layer to initiate communications. </p>
+<p>The software applications are not part of the application layer by themselves, but rather the application layer is responsible for the protocols and data manipulation that the software relies on to present meaningful data to the user.</p>
+<p>Once the user's data has been gathered, application layer will make a connection with the bottom layer - presentation layer for further manipulation. </p>
+<p>Application layer protocols:</p>
+<ul>
+<li>[[HTTP &amp; HTTPS]]</li>
+<li>[[FTP]]</li>
+<li>[[4. Emails - Sending, records, software (qmail vs dovecot, their log locations)#Mail Transfer Agent/SMTP|SMTP]]</li>
+<li>[[2. DNS (full)#What is DNS?|DNS]] </li>
+<li>[[DHCP]]</li>
+<li>[[SSH]]</li>
+</ul>
+<h3 id="layer-6-presentation-layer">Layer 6. Presentation layer:</h3>
+<p>The presentation layer is responsible for handling the syntax and semantics of the information exchanged between network devices. </p>
+<p>It handles data conversion, encryption and compression.</p>
+<ul>
+<li>Data conversaon </li>
+<li>Data Encryption </li>
+<li>Data compression </li>
+</ul>
+<h3 id="layer-5-session-layer">Layer 5. Session layer</h3>
+<p>In a network, multiple applications running on different systems may need to communicate with one another. This process is called a session, and the Session layer handles these interactions. It provides the mechanisms for establishing a session between applications, maintaining the session and ending the session once the communication is complete. It also provides mechanisms for synchronization and recovery in case of communication failure or interruptions. </p>
+<p>Lets say we are running an email client, a web browser and a torrent applications at the same time. Each of these applications will be using a different session, which is managed by this layer. This is the reason why we can at the same time have a browser, mail client and torrent client open for example. This layer will assign each of these applications a session so that the data can be managed accordingly. </p>
+<h3 id="layer-4-transport-layer-segmentation-and-reassembly">Layer 4: Transport Layer - Segmentation and Reassembly</h3>
+<p>Unlike the name would suggest, transport layer does not transport data between different devices. Transport layer's job is to break down data from the upper layers into digestible chunks and to append header with source and destination [[PORTS|port]] so that the machines on a network know which service said data chunks are meant for.</p>
+<ul>
+<li><strong>Source port</strong> is required on the source machine in cases where we have multiple applications using the same protocol. If, for example, we had multiple browsers installed, when we try to access a website on one through HTTP, we do not want the result to be opened in another browser. Source port will be a random number between 1024-65535.</li>
+<li><strong>Destination port</strong> will depend on which service we require from the destination machine, and will be provided by the application layer. It will most commonly be one of the well known ports (1-1024).</li>
+</ul>
+<p>This process is called <strong>segmentation</strong>, and said chunks are called <strong>segments</strong> or <strong>datagrams</strong>.</p>
+<p>The receiving system then does the <strong>reassembly</strong> of these segments - recognizes the incoming packets as one data transmission, reassembles the packets correctly based on the information included in the packets by the sending system and verifies that all the packets for that piece of data arrived in good shape. </p>
+<p>The primary functions of the Transport Layer are:</p>
+<ul>
+<li>
+<p>To enable efficient network transmission, the Transport Layer splits the total amount of data it gets from the applications running at the top layers into smaller units known as segments. The Transport Layer puts these bits back together into the original data stream at the other end.</p>
+</li>
+<li>
+<p>In situations when organised data transfer is required, the Transport Layer creates a connection between the source and the destination. In order to create the proper parameters and guarantee that both systems are prepared to communicate data, a handshake protocol is established. When the data transfer is complete, the Transport Layer closes the connection.</p>
+</li>
+<li>
+<p>The transport layer also assures dependable data transmission. Receiving acknowledgments, or ACK bits, is how this is accomplished. While waiting for the recipient to acknowledge the parts it sent, the sender keeps an eye on them. Any damaged segments are retransmitted by the sender if they receive an acknowledgment.</p>
+</li>
+<li>
+<p>Flow regulation - In order to prevent data overload, transport layer regulates the data transfer rate. </p>
+</li>
+<li>
+<p>Both error detection and repair are handled by the transport layer. Checksums are one of these techniques for error detection. By computing and validating checksums, it can ascertain whether data was tampered with during transmission. The Transport Layer will request retransmission if it finds anything.</p>
+</li>
+</ul>
+<p>Depending on whether the connection favors performance or stability, we differentiate two transport layer protocols:
+- [[TCP vs UDP]]</p>
+<h3 id="layer-3-network-layer">Layer 3: Network Layer</h3>
+<p>Because these segments will need to travel all over the Internet along different pathways, we need a mechanism that knows once the segment does arrive, which pathway it's supposed to be sent down to so that it all gets to the final destination. This is handled by the Network layer.</p>
+<p>Network layer will take the segment from the Transport layer, re-encapsulate it by adding a header to it which will have a source and destination IP address. We call this chunk a <strong>packet</strong>.</p>
+<p>By far the most common protocol that is used on the Network layer is IPv4 (but it's not the only one).</p>
+<p>Network Layer handles functions such as:
+- Assigning Logical Address to devices which are connecting to a network to send/receive data packets. 
+- Routing - process of identifying the best path to transmit the packets
+- Host-to-host delivery or Forwarding - process in which the network layer transmits or forwards the data via routers after determining the best path.
+- Logical subnetting - dividing a bigger network into smaller chunks so that IP addresses are used more efficiently. 
+- Network Address Translation (NAT) - process of converting any private IP address into a public IP address.</p>
+<h4 id="network-layer-protocols">Network Layer protocols:</h4>
+<ul>
+<li>[[Internet Protocol]]</li>
+<li>[[ICMP]]</li>
+</ul>
+<h3 id="layer-2-data-link-layer">Layer 2: Data-Link Layer</h3>
+<p>When we say "link", we mean two devices connecting together. Everything up to this layer was a machine readable data. Data-Link layer has a job to take said data and connect it to the last layer - Physical layer. It does this by taking the packet provided by the Network layer and encapsulates it in a <strong>frame</strong>. </p>
+<p>Data-Link does splits its job into  two sublayers:
+- <strong>Logical Link Control</strong> (LLC) layer talks to the operating system through drivers and handles multiple network protocols and provides flow control.
+- <strong>Media Access Control</strong> (MAC) layer creates and addresses the frame. It adds NIC’s MAC address and attaches MAC addresses to the frame, adds and checks the FCS and ensures that frames are sent along the network cabling. </p>
+<p>A frame will consist of a <strong>header</strong> and a <strong>trailer</strong> attached to it. Trailer exists because much like all the other layers, Data-Link is also governed by protocols (Ethernet being the most common). </p>
+<p>Data transmission involves a stream of signals through a physical device, and in nature there are many signals which are just static noise. In order to differentiate data transferred between devices from a static noise, we attach a trailer to the packet. With it, destination device can recognize said stream of data and know how to handle it.</p>
+<h3 id="layer-1-physical-layer">Layer 1: Physical layer</h3>
+<p>Network needs a physical channel through which the data can be transferred. Most common type is the UTP cable (unshielded twisted pair) which can transmit and receive data, as well as a central box (Hub/Switch) that handles a flow from one machine to another. Each system on a network has a cable connected to the central box.</p>
+<p>Network Interface Card (NIC) serves as the interface between the PC and the network. Each NIC has a unique identifier with a 48-bit value called media access control address (MAC address) so data is transferred to the right system. No two NICs ever share the same MAC address. Those numbers are provided by Institute of Electrical and Electronics Engineers (IEEE) to the companies making NICs, which often print the numbers onto the device itself using hexadecimal notation. 
+- Example: 00–40–05–60–7D–49</p>
+<p>First six digits in MAC address represent the number of the NIC manufacturer and they are referred to as Organizationally Unique Identifier (OUI) while the last six digits represent the unique serial number for the NIC and are referred to as device ID. Nomenclature for MAC addresses is also known as MAC-48 and EUI-48 (Extended Unique Identifier, chosen for trademarking purposes). </p>
+<p>NICs transfer the information through the UTP cable in the form of binary data that is broken down into discrete chunks called <strong>frames</strong>. The NICs create and send, as well as receive and read these frames. Different frames are used on different networks and all NICs on the same network must use the same frame type to communicate with other NICs.</p>
+<p>(Optional)
+    Frame begins with the MAC address of the NIC to which the data is to be sent, followed by the MAC address of the sending NIC. Next comes the <strong>Types</strong> field which indicates the type of data transferred, followed by the <strong>Data</strong> field which contains the encapsulated information. Lastly, there is a special bit of checking information called <strong>frame check sequence</strong>. FCS uses a type of binary math called <strong>cyclic redundancy check</strong> (CRC) in order to verify that the data has arrived intact. Most wired connections hold up to <strong>1500 bytes</strong> of data. </p>
+<p>When a system sends a frame out on the network, the frame goes into the central box. What happens from that point depends on the type of central box.
+- Hub could make a copy of the frame and send it to all the connected ports except for the port from which the message originated. Only the NIC to which the frame was addressed would process that frame and the others would drop it when they saw it wasn’t addressed to their MAC addresses.<br />
+- Switch sent a frame only to the interface associated with the destination of the MAC address.</p>
+<p>(Optional)
+    In situations where NIC doesn’t know the MAC address of another NIC, they send a broadcast onto the network to ask for it. If a NIC sends a frame using a broadcast address (MAC address FF-FF-FF-FF-FF-FF), that frame is processed by every single NIC on that network. That broadcast frame’s data will contain a request for a system’s MAC address. Without knowing the MAC address to begin with, the requesting computer will use an IP address to pick the target computer out of the crowd. The system that is sought will read the request in the broadcast frame and respond its MAC address.</p>
+<p>When the frame finally arrives to the destination machine, the entire process will be reversed.
+- Data Link will remove the header and a trailer from the frame and pass the packet along to the Network layer.
+- Network layer will remove the header and pass the packet to the Transport layer.
+- Transport layer will read the destination port and transfer the frame to the appropriate service in the upper layers.</p>
+<p>PDU - protocol data unit</p>
+<h1 id="tcpip-model">TCP/IP model</h1>
+<p>The reason why TCP/IP model has this name is because the persons who developed it focused primarily on these two protocols. Back in the day of Arpanet, they needed to be sure that the data was reliable.</p>
+<h3 id="the-application-layer">The Application layer</h3>
+<p>The Application layer combines the top three layers of the OSI model and its responsible for providing network services and applications to end-users.</p>
+<p>Although we can say that the OSI Presentation layer is part of the TCP/IP Application layer, no application requires any particular form of presentation as seen by the OSI model. Applications in TCP/IP already use standardized formats that everyone understands. </p>
+<p>Furthermore, Session Layer's responsibilities are also handled by applications themselves - every application has to be able to initiate, control and disconnect from a remote system. There is no clearly defined way to do this and each TCP/IP application uses its own methods.</p>
+<p>All applications can talk to the network, so long they are part of the network. They also need to be part of the network to function: Web browsers, e-mail clients, multiplayer games etc.</p>
+<p>Just like in the OSI model, the Application Layer will produce a stream of data which will be handed off to the layer below it.</p>
+<h3 id="the-transport-layer">The Transport Layer</h3>
+<p>The Transport Layer is equivalent to the OSI Transport layer. It’s responsible for providing reliable end-to-end communication between applications running on different hosts. </p>
+<p>Much like it's OSI equivalent, Transport Layer will produce <strong>segments</strong> from the data that the Application Layer provided. It doesn't care how data is delivered because at some point of the data transfer, the destination device will have to know how to handle the data which Application Layer produced.</p>
+<p>Transport Layer includes two protocols - Transmission Control Protocol (TCP) and User Datagram Protocol (UDP). </p>
+<ul>
+<li>
+<p>TCP is a connection-oriented protocol that provides reliable, ordered and error checked delivery of data between applications. As a consequence of adding all of those mechanisms, the data transmission will be reliable but slow.</p>
+</li>
+<li>
+<p>UDP is a connectionless communication that provides an unreliable, unordered and unchecked delivery of data. The trade-off is that the data transmission is much faster because it doesn't have to append extra bits to the segment. It’s used with software like VoIP or video streaming.</p>
+</li>
+</ul>
+<p>TCP segments include fields:</p>
+<ul>
+<li>Destination port</li>
+<li>Source port</li>
+<li>Sequence number</li>
+<li>Checksum</li>
+<li>Flags</li>
+<li>Acknowledgement</li>
+<li>Data</li>
+</ul>
+<p>UDP on the other hand also gets the data from the Application layer and adds port and length numbers, as well as a checksum to create a container called a UDP datagram. UDP doesn’t care if the receiving computer gets all its data, which is why UDP datagram lacks most of the fields found in TCP segments.</p>
+<p>In summary, data arrives from the Application layer which is then broken up into fragments, given destination, source and sequence numbers and then shipped to the Internetworking Layer to be wrapped into an IP packet. </p>
+<h3 id="the-internetworking-layer">The Internetworking Layer</h3>
+<p>The Internetworking layer is equivalent to OSI Network Layer and is responsible for handling logical addressing and routing (forwarding). </p>
+<p>The main protocol used on this layer Internet Protocol which provides a unique IP address to each device on the network. Any device or protocol that deals with pure IP packets sits on the Internetworking Layer. </p>
+<p>The Internet layer doesn’t care what type of data the IP packet carries, nor does it care whether the data gets there in good order or not. That is handled by the Transport layer.</p>
+<p>Internetworking layer will take the segment provided by the Transport Layer and will create a <strong>packet</strong>.</p>
+<h3 id="network-access-layer">Network Access Layer</h3>
+<p>Network Access Layer groups up the last two layers of the OSI model - Data-Link and Physical. The keyword in this layer is <strong>access</strong> - this layer deals with any physical (hardware) part of the network.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.top", "navigation.tracking", "navigation.sections", "search.suggest"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>

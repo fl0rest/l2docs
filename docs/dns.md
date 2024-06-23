@@ -132,16 +132,3 @@ Glue records can only be created at the domain registrar as the registrar contro
 In normal DNS resolution, when a resolver attempts to resolve a domain name, it first queries the root, which provides the top-level domain. Next, it queries the top-level domain servers, which provide the domain’s authoritative nameservers. Finally, it queries the authoritative nameservers for the domain to resolve the domain name. If the nameservers for a domain exist inside the domain itself, a glue record is needed to resolve the domain name.
 
 <https://www.cloudflare.com/learning/dns/dns-records/>
-
-## Domain name
-
-Simply put, a domain name (or just ‘domain’) is the name of a website. It’s what comes after “@” in an email address, or after “www.” in a web address. If someone asks how to find you online, what you tell them is usually your domain name.
-Domain names are typically broken up into two or three parts, each separated by a dot.
-To the left of the TLD is the second-level domain (2LD) and if there is anything to the left of the 2LD, it is called the third-level domain (3LD). 
-For Google’s US domain name, ‘google.com’:
-
-* ’.com’ is the TLD (most general)
-* ’google’ is the 2LD (most specific)
-
-Difference between a domain name and a URL? A uniform resource locator (URL), sometimes called a web address, contains the domain name of a site as well as other information, including the protocol and the path. For example, in the URL ‘https://example.com/learning/’, example.com’ is the domain name, while ‘https’ is the protocol and ‘/learning/’ is the path to a specific page on the website.
-

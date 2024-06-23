@@ -8,10 +8,8 @@
       
       
       
-        <link rel="canonical" href="https://xeman.github.io/l2docs/bashrc.html">
+        <link rel="canonical" href="https://xeman.github.io/l2docs/ports.html">
       
-      
-        <link rel="prev" href="emails.html">
       
       
       
@@ -20,7 +18,7 @@
     
     
       
-        <title>.bashrc - J/L2 Docs</title>
+        <title>Ports - J/L2 Docs</title>
       
     
     
@@ -103,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              .bashrc
+              Ports
             
           </span>
         </div>
@@ -607,17 +605,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="bashrc.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="bashrc.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -626,7 +617,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -662,9 +652,114 @@
                   
 
 
-  <h1>.bashrc</h1>
+  <h1>Ports</h1>
 
-
+<p>Port is a logical connection used by programs and services to exchange information. It determines which program or service on a computer or server is going to be used.  All ports are identified by the unique number that ranges from 0-65535. </p>
+<p>Whenever a device attempts to make a connection to another device on the network, a port will be paired up with an IP address. An IP address will be used to determine the physical location of the server, while the port will determine which service that server wants to use. </p>
+<p>We can use Netstat utility (network statistics) in order to display current network connections and port activities on our computer. </p>
+<pre><code>sandar@nova:~$ netstat -n
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 192.168.1.110:22        192.168.1.103:42470     ESTABLISHED
+tcp6       0      0 192.168.1.110:80        192.168.1.107:62563     FIN_WAIT2  
+tcp6       0      0 192.168.1.110:80        192.168.1.107:62550     TIME_WAIT  
+</code></pre>
+<p>Port numbers are assigned by IANA - Internet assigned Numbers Authority. They are broken down into three categories:</p>
+<table>
+<thead>
+<tr>
+<th>Port numbers</th>
+<th>Port names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-1023</td>
+<td>System/Well Known Ports</td>
+</tr>
+<tr>
+<td>1024-49151</td>
+<td>User/Registered ports</td>
+</tr>
+<tr>
+<td>49152-65535</td>
+<td>Dynamic/Private ports</td>
+</tr>
+</tbody>
+</table>
+<p>First two categories are used by the server to which our device connects to, while the last one is the one that device assigns itself during the session.</p>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>TCP/UDP</th>
+<th>Port</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FTP</td>
+<td>TCP</td>
+<td>20/21</td>
+<td>File transfer</td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>TCP</td>
+<td>22</td>
+<td>Secure remote control</td>
+</tr>
+<tr>
+<td>Telnet</td>
+<td>TCP</td>
+<td>23</td>
+<td>Remote control</td>
+</tr>
+<tr>
+<td>SMTP(S)</td>
+<td>TCP</td>
+<td>25/587</td>
+<td>Sending emails</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>UDP</td>
+<td>53</td>
+<td>Naming</td>
+</tr>
+<tr>
+<td>DHCP</td>
+<td>UDP</td>
+<td>67/68</td>
+<td>Assigns IPs</td>
+</tr>
+<tr>
+<td>HTTP(S)</td>
+<td>TCP</td>
+<td>80/443</td>
+<td>Web(secure)</td>
+</tr>
+<tr>
+<td>POP3(S)</td>
+<td>TCP</td>
+<td>110/995</td>
+<td>Email retrieval(secure)</td>
+</tr>
+<tr>
+<td>IMAP4</td>
+<td>TCP</td>
+<td>143/993</td>
+<td>Email retrieval (secure)</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>TCP</td>
+<td>3306</td>
+<td>Database server</td>
+</tr>
+</tbody>
+</table>
 
 
 

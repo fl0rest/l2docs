@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://xeman.github.io/l2docs/bashrc.html">
+        <link rel="canonical" href="https://xeman.github.io/l2docs/ping-traceroute-netstat.html">
       
       
-        <link rel="prev" href="emails.html">
+        <link rel="prev" href="domains.html">
       
+      
+        <link rel="next" href="ssl.html">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -20,7 +22,7 @@
     
     
       
-        <title>.bashrc - J/L2 Docs</title>
+        <title>Basic Tools - J/L2 Docs</title>
       
     
     
@@ -71,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#basic-tools-for-computer-network-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              .bashrc
+              Basic Tools
             
           </span>
         </div>
@@ -283,8 +290,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -294,11 +303,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -312,7 +321,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Networking
@@ -344,10 +353,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="ping-traceroute-netstat.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Basic Tools
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ping-traceroute-netstat.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -356,6 +385,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ping" class="md-nav__link">
+    <span class="md-ellipsis">
+      ping
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traceroute-tracepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      traceroute &amp; tracepath
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      netstat
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -607,17 +683,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="bashrc.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="bashrc.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -626,7 +695,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -648,6 +716,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ping" class="md-nav__link">
+    <span class="md-ellipsis">
+      ping
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traceroute-tracepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      traceroute &amp; tracepath
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netstat" class="md-nav__link">
+    <span class="md-ellipsis">
+      netstat
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -662,9 +767,10 @@
                   
 
 
-  <h1>.bashrc</h1>
-
-
+<h1 id="basic-tools-for-computer-network-analysis">Basic tools for computer network analysis</h1>
+<h2 id="ping">ping</h2>
+<h2 id="traceroute-tracepath">traceroute &amp; tracepath</h2>
+<h2 id="netstat">netstat</h2>
 
 
 
