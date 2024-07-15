@@ -14,7 +14,7 @@ The seven layers include:
 - Layer 2: Data Link
 - Layer 1: Physical
 
-### Layer  7. Application layer:
+## Layer  7. Application layer:
 Being the topmost layer of the OSI model, this is the only layer that directly interacts with data from the user. Software applications like web browsers and email clients rely on the application layer to initiate communications. 
 
 The software applications are not part of the application layer by themselves, but rather the application layer is responsible for the protocols and data manipulation that the software relies on to present meaningful data to the user.
@@ -23,14 +23,14 @@ Once the user's data has been gathered, application layer will make a connection
 
 Application layer protocols:
  
-- [[HTTP & HTTPS]]
-- [[FTP]]
-- [[4. Emails - Sending, records, software (qmail vs dovecot, their log locations)#Mail Transfer Agent/SMTP|SMTP]]
-- [[2. DNS (full)#What is DNS?|DNS]] 
-- [[DHCP]]
-- [[SSH]]
+- `HTTP` & `HTTPS`
+- `FTP`
+- `SMTP`
+- `DNS`
+- `DHCP`
+- `SSH`
 
-### Layer 6. Presentation layer:
+## Layer 6. Presentation layer:
 The presentation layer is responsible for handling the syntax and semantics of the information exchanged between network devices. 
 
 It handles data conversion, encryption and compression.
@@ -39,12 +39,12 @@ It handles data conversion, encryption and compression.
 - Data Encryption 
 - Data compression 
 
-### Layer 5. Session layer
+## Layer 5. Session layer
 In a network, multiple applications running on different systems may need to communicate with one another. This process is called a session, and the Session layer handles these interactions. It provides the mechanisms for establishing a session between applications, maintaining the session and ending the session once the communication is complete. It also provides mechanisms for synchronization and recovery in case of communication failure or interruptions. 
 
 Lets say we are running an email client, a web browser and a torrent applications at the same time. Each of these applications will be using a different session, which is managed by this layer. This is the reason why we can at the same time have a browser, mail client and torrent client open for example. This layer will assign each of these applications a session so that the data can be managed accordingly. 
 
-### Layer 4: Transport Layer - Segmentation and Reassembly
+## Layer 4: Transport Layer - Segmentation and Reassembly
 Unlike the name would suggest, transport layer does not transport data between different devices. Transport layer's job is to break down data from the upper layers into digestible chunks and to append header with source and destination [[PORTS|port]] so that the machines on a network know which service said data chunks are meant for.
 
 - **Source port** is required on the source machine in cases where we have multiple applications using the same protocol. If, for example, we had multiple browsers installed, when we try to access a website on one through HTTP, we do not want the result to be opened in another browser. Source port will be a random number between 1024-65535.
@@ -69,7 +69,7 @@ The primary functions of the Transport Layer are:
 Depending on whether the connection favors performance or stability, we differentiate two transport layer protocols:
 - [[TCP vs UDP]]
 
-### Layer 3: Network Layer
+## Layer 3: Network Layer
 Because these segments will need to travel all over the Internet along different pathways, we need a mechanism that knows once the segment does arrive, which pathway it's supposed to be sent down to so that it all gets to the final destination. This is handled by the Network layer.
 
 Network layer will take the segment from the Transport layer, re-encapsulate it by adding a header to it which will have a source and destination IP address. We call this chunk a **packet**.
@@ -83,11 +83,11 @@ Network Layer handles functions such as:
 - Logical subnetting - dividing a bigger network into smaller chunks so that IP addresses are used more efficiently. 
 - Network Address Translation (NAT) - process of converting any private IP address into a public IP address.
 
-#### Network Layer protocols:
+### Network Layer protocols:
 - [[Internet Protocol]]
 - [[ICMP]]
 
-###  Layer 2: Data-Link Layer
+##  Layer 2: Data-Link Layer
 When we say "link", we mean two devices connecting together. Everything up to this layer was a machine readable data. Data-Link layer has a job to take said data and connect it to the last layer - Physical layer. It does this by taking the packet provided by the Network layer and encapsulates it in a **frame**. 
 
 Data-Link does splits its job into  two sublayers:
@@ -98,7 +98,7 @@ A frame will consist of a **header** and a **trailer** attached to it. Trailer e
 
 Data transmission involves a stream of signals through a physical device, and in nature there are many signals which are just static noise. In order to differentiate data transferred between devices from a static noise, we attach a trailer to the packet. With it, destination device can recognize said stream of data and know how to handle it.
 
-### Layer 1: Physical layer
+## Layer 1: Physical layer
 
 Network needs a physical channel through which the data can be transferred. Most common type is the UTP cable (unshielded twisted pair) which can transmit and receive data, as well as a central box (Hub/Switch) that handles a flow from one machine to another. Each system on a network has a cable connected to the central box.
 
@@ -130,7 +130,7 @@ PDU - protocol data unit
 # TCP/IP model
 The reason why TCP/IP model has this name is because the persons who developed it focused primarily on these two protocols. Back in the day of Arpanet, they needed to be sure that the data was reliable.
 
-###  The Application layer
+##  The Application layer
 The Application layer combines the top three layers of the OSI model and its responsible for providing network services and applications to end-users.
 
 Although we can say that the OSI Presentation layer is part of the TCP/IP Application layer, no application requires any particular form of presentation as seen by the OSI model. Applications in TCP/IP already use standardized formats that everyone understands. 
@@ -141,7 +141,7 @@ All applications can talk to the network, so long they are part of the network. 
 
 Just like in the OSI model, the Application Layer will produce a stream of data which will be handed off to the layer below it.
 
-### The Transport Layer
+## The Transport Layer
 The Transport Layer is equivalent to the OSI Transport layer. It’s responsible for providing reliable end-to-end communication between applications running on different hosts. 
 
 Much like it's OSI equivalent, Transport Layer will produce **segments** from the data that the Application Layer provided. It doesn't care how data is delivered because at some point of the data transfer, the destination device will have to know how to handle the data which Application Layer produced.
@@ -166,7 +166,7 @@ UDP on the other hand also gets the data from the Application layer and adds por
 
 In summary, data arrives from the Application layer which is then broken up into fragments, given destination, source and sequence numbers and then shipped to the Internetworking Layer to be wrapped into an IP packet. 
 
-### The Internetworking Layer
+## The Internetworking Layer
 The Internetworking layer is equivalent to OSI Network Layer and is responsible for handling logical addressing and routing (forwarding). 
 
 The main protocol used on this layer Internet Protocol which provides a unique IP address to each device on the network. Any device or protocol that deals with pure IP packets sits on the Internetworking Layer. 
@@ -175,5 +175,5 @@ The Internet layer doesn’t care what type of data the IP packet carries, nor d
 
 Internetworking layer will take the segment provided by the Transport Layer and will create a **packet**.
 
-### Network Access Layer
+## Network Access Layer
 Network Access Layer groups up the last two layers of the OSI model - Data-Link and Physical. The keyword in this layer is **access** - this layer deals with any physical (hardware) part of the network.

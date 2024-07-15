@@ -65,6 +65,7 @@ When a recursive resolver receives a response from a TLD nameserver, that respon
 
 
 ## DNS records
+
 ### A record
 
 The record that holds the IP address of a domain. The "A" stands for "address" and this is the most fundamental type of DNS record: it indicates the IP address of a given domain.

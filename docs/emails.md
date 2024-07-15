@@ -1,24 +1,26 @@
-### Keywords: 
+!!! info "Keywords" 
 
-- MUA (Mail User Agent) - Webmails, Clients (Outlook, Thunderbird)
-- MDA (Mail Delivery Agent)
-- MTA (Mail Transfer Agent)
-- SMTP (Simple Mail Transfer Protocol)
-- IMAP (Internet Message Access Protocol)
-- POP3 (Post Office Protocol 3)
-- MX records (Mail Exchange Records)
-- SPF (Sender Policy Framework)
-- DKIM (Domain Keys Identified Mail)
-- DMARC (Domain-based Message Authentication and Conformance)
+	MUA (Mail User Agent) - Webmails, Clients (Outlook, Thunderbird)
+	MDA (Mail Delivery Agent)
+    MTA (Mail Transfer Agent)
+    SMTP (Simple Mail Transfer Protocol)
+    IMAP (Internet Message Access Protocol)
+    POP3 (Post Office Protocol 3)
+    MX records (Mail Exchange Records)
+    SPF (Sender Policy Framework)
+    DKIM (Domain Keys Identified Mail)
+    DMARC (Domain-based Message Authentication and Conformance)
 
-### Process
+## Process
 
-#### Mail User Agent:
+### Mail User Agent
+
 MUA (Mail User Agent) or an email client is a software or a web application that allows users to compose, send, and manage their emails. Examples include Microsoft Outlook, Mozilla Thunderbird, and Apple Mail (software application) and RoundCube, SquirrelMail and Horde (web applications). 
 
 Our customers can also send emails through their websites using default PHP mailer or SMTP plugins - form submissions are one example. If form submission is set up, their customers will fill out the form and the website will send out an email automatically as a “quasi” MUA.
 
-#### Mail Transfer Agent/SMTP:
+### Mail Transfer Agent/SMTP
+
 Once an email is sent, an email client will communicate with an MTA - Mail Transfer Agent - the SMTP server. 
 
 SMTP server utilizes software like exim, qmail or postifx to send a message to the recipient's mail server. The SMTP server will take an email message from a client and prepare it for a delivery by adding necessary headers like sender and recipient addresses and append the details required for a transmission. 
@@ -30,21 +32,25 @@ The recipient's SMTP server receives incoming email messages from sender's SMTP 
 - DNS record verification - SPF, DKIM, DMARC, PTR
 - Server side SPAM rules
 
-#### Mail Delivery Agent:
+### Mail Delivery Agent
+
 When the validity of the email is verified, recipient SMTP server will invoke MDA like Dovecot to store the incoming email in the proper user's mailbox.  Once the email is delivered, MUA utilizes IMAP/POP3 protocols to retrieve emails from a mail server for the user.
 
-##### POP3
+## POP3
+
 Post Office Protocol 3 is an email protocol that clients use to retrieve email from a mail server. POP3 clients connect, retrieve all messages, store them on the client computer, and finally delete them from the server (although there is an option for email clients to leave the message on the server or simply download a local copy). POP3 treats the mailbox as a single store, and has no concept of folders. It also provides a completely static view of the current state of the mailbox and does not provide a mechanism to show any external changes in state during the session.
   
 This design of POP and its procedures was driven by the need of users having only temporary Internet connections, such as dial-up access, allowing these users to retrieve email when connected, and subsequently to view and manipulate the retrieved messages when offline. A POP3 server listens on port number 110 for service requests or port number 995 for secure connection (POP3S).
 
-##### IMAP
+## IMAP
+
 The Internet Message Access Protocol allows a client to access and manipulate electronic mail messages on a server, as well as manipulation of mailboxes  in a way that is functionally equivalent to local folders. It includes operations for creating, deleting and renaming mailboxes; checking for new messages; removing messages permanently; setting and clearing flags (read, replied to, forwarded, deleted etc); searching; and selective fetching of message attributes, texts and portions thereof. IMAP4 server listens on port 143 which is an unsecure channel or port 993 which is an implicit TLS port.
 
 Visual
 ![[Mail delivery.png]]
 
-### Troubleshooting email delivery failure:
+## Troubleshooting email delivery failure
+
 Each step of this process can be a potential point of failure (that's why emails are so hard to troubleshoot). 
 
 1. MUA: 
@@ -62,10 +68,10 @@ Each step of this process can be a potential point of failure (that's why emails
 	On managed apps we use dovecot. You can check the dovecot logs for information such as whether the user logging in is using IMAP/POP3 connection for example.
 		`cat /var/log/dovecot/dovecot.log`
 
-### Breakdown of the mailing process using qmail: 
+## Breakdown of the mailing process using qmail
 
 Example of qmail log:
-```
+```shell
 $ cat /var/log/send/current | tai64nlocal | grep 574692321
 2023-07-26 14:28:27.917076500 info msg 574692321: bytes 16593 from <outlook_553EE1FF76D81E16@outlook.com> qp 5228 uid 108
 
@@ -126,10 +132,22 @@ Lookup command:
 - `2023-07-26 14:28:28.046768500 status: local 0/10 remote 0/255
   `2023-07-26 14:28:28.046819500 end msg 574692321` <- The queue is empty and the message is being deleted from the queue. 
 
-Log locations: 
+Log locations:
+
 - qmail-send `/var/log/send/current`
 - qmail-smtp inc&out `/var/log/smtp/current`
 - IMAP  (legacy SIP) `/var/log/imap4-ssl/current`
 - POP  (legacy SIP)`/var/log/pop3-ssl/current`
 - POP and IMAP (cloudhost and recent dedicated servers) `/var/log/dovecot`
 - Inbound SpamAssassin scoring `/var/log/maillog`
+
+*[MUA]: Mail User Agent
+*[MDA]: Mail Delivery Agent
+*[MTA]: Mail Transfer Agent
+*[SMTP]: Simple Mail Transfer Protocol
+*[IMAP]: Internet Message Access Protocol
+*[POP3]: Post Office Protocol 3
+*[MX]: Mail Exchange Records
+*[SPF]: Sender Policy Framework
+*[DKIM]: Domain Keys Identified Mail
+*[DMARC]: Domain-based Message Authentication and Conformance

@@ -1,8 +1,11 @@
 FTP is a protocol that relies on two communications channels between the client and server: a command channel for controlling the conversation and a data channel for transmitting file content.
 
 FTP transfer process:
+
 1. A user typically needs to log on to the FTP server, although some servers make some or all of their content available without a login, a model known as _anonymous FTP
+
 2. The client initiates a conversation with the server when the user requests to download a file.
+
 3. Using FTP, a client can upload, download, delete, rename, move and copy files on a server.
 
 Users can work with FTP via a simple command-line interface -- terminal -- or with a dedicated graphical user interface.  Most common client is  **FileZilla** that supports FTP, FTPS and SFTP, but web browsers can also serve as FTP clients. There are several different ways an FTP server and client software can conduct a file transfer using FTP:

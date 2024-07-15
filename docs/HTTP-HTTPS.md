@@ -1,4 +1,5 @@
-### HTTP 
+### HTTP
+
 Hypertext transfer protocol is a [protocol](https://developer.mozilla.org/en-US/docs/Glossary/Protocol) used for transferring HTML documentations over the internet. It is a client-server protocol, which means requests are initiated by the recipient, usually the Web browser. Clients and servers communicate by exchanging individual messages. The messages sent by the client, usually a Web browser, are called _requests_ and the messages sent by the server as an answer are called _responses_.
 
 To display a Web page, the browser sends an original request to fetch the HTML document that represents the webpage. A server will accept the request and access port 80 which is reserved for HTTP requests and serve the file to the user-agent. The Web browser then combines these resources to present the complete document, the Web page. Scripts executed by the browser can fetch more resources in later phases and the browser updates the Web page accordingly.
@@ -14,11 +15,14 @@ Almost anything you want to do other than viewing static web pages will involve 
 The issue with HTTP is that it does not encrypt the packages when a client is communicating with the server. This means that anyone who has an access to that network can read the information that is being transmitted, such as passwords, credit card numbers etc. In order to protect users from man-in-the-middle attacks, we use HTTPS. 
 
 HTTPS uses an TLS/SSL encryption in order to randomize the text being transferred and hide the contents of the communication. This type of security system uses two different keys to encrypt communications between two parties:
+
 1. The private key - this key is controlled by the owner of a website and it’s kept, as the reader may have speculated, private. This key lives on a web server and is used to decrypt information encrypted by the public key.
+
 2. The public key - this key is available to everyone who wants to interact with the server in a way that’s secure. Information that’s encrypted by the public key can only be decrypted by the private key.
+
 HTTPS uses port 443
 
-#### HTTP RESPONSE CODES:
+#### HTTP RESPONSE/STATUS CODES:
 
 All HTTP response status codes are separated into five classes or categories. The first digit of the status code defines the class of response, while the last two digits do not have any classifying or categorization role. There are five classes defined by the standard:
 
@@ -29,20 +33,20 @@ All HTTP response status codes are separated into five classes or categories. Th
 - _5xx server error_ – the server failed to fulfill an apparently valid request
 
 Common response codes:
-- 200 - Ok
-- 300 - Multiple choices
-- 301 - Moved Permanently
-- 302 - Found
-- 400 - Bad request
-- 401 - Unauthorized
-- 403 - Forbidden
-- 404 - Not Found
-- 408 - Request Timeout
-- 418 - I'm a teapot
-- 429 - Too many requests
-- 444 - No Response
-- 500 - Internal Server Error
-- 502 - Bad Gateway
-- 503 - Service Unavailable
-- 504 - Gateway Timeout
 
+- `200` - Ok
+- `300` - Multiple choices
+- `301` - Moved Permanently
+- `302` - Found
+- `400` - Bad request
+- `401` - Unauthorized
+- `403` - Forbidden
+- `404` - Not Found
+- `408` - Request Timeout
+- `418` - I'm a teapot
+- `429` - Too many requests
+- `444` - No Response
+- `500` - Internal Server Error
+- `502` - Bad Gateway
+- `503` - Service Unavailable
+- `504` - Gateway Timeout

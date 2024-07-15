@@ -1,0 +1,1291 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://vaxeman.github.io/l2docs/icmp.html">
+      
+      
+        <link rel="prev" href="TCP-vs-UDP.html">
+      
+      
+        <link rel="next" href="internet-models.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+    
+    
+      
+        <title>ICMP - J/L2 Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="lime" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-is-the-internet-control-message-protocol-icmp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="J/L2 Docs" class="md-header__button md-logo" aria-label="J/L2 Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            J/L2 Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ICMP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="J/L2 Docs" class="md-nav__button md-logo" aria-label="J/L2 Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    J/L2 Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DNS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dns.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common records & lookup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="difference-a-cname-alias.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differences Among A, CNAME, ALIAS, and URL records
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="networking/IP-address.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IP address
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ports.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ports
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="protocols.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocols
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="domains.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Domains
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ping-traceroute-netstat.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ssl.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="TCP-vs-UDP.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TCP/UDP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ICMP
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="icmp.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ICMP
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-icmp-used-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is ICMP used for?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-icmp-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does ICMP work?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-icmp-packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is an ICMP packet?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="internet-models.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OSI 7-layer model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="FTP.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FTP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="HTTP-HTTPS.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP/HTTPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linux/permissions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linux/piping.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Piping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linux/file-management.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linux/archiving-compression.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Archiving and compression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CMS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CMS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="wordpress.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WordPress
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="magento.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Magento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Emails
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Emails
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="emails.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Email
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="deliverability.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deliverability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="bashrc.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    .bashrc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/what-dns.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/what-emails.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Emails
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/what-networking.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/what-linux.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-icmp-used-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is ICMP used for?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-icmp-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does ICMP work?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-icmp-packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is an ICMP packet?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<div id="mkdocs-encrypted-content" style="display:none">FwzOzXUQyR4YZp7QYEc/hg==;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</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form" class="md-content__inner md-typeset">
+        <h1>This content is protected with AES encryption. </h1>
+        <p>Contact your administrator for access to this page.</p>
+        <input class="md-input" type="password" id="mkdocs-content-password" placeholder="Password">
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
+</div>
+
+<script type="text/javascript">
+var encryptcontent_id = "encryptcontent_1";
+var encryptcontent_path = "l2docs/icmp.html";
+var decryption_failure_message = "Invalid password.";
+var encryptcontent_keystore = ["/KwA/tOWqAtCdWtU/m97Ug==;LSPL+up66JsOVcGU9y8vS5SVAY1n/aEoQbnmLQ/4Q+y0/OM+9Vu33UXzGKeAvNkDTy0ijDiB6iSoH7IXMFUj3FYrAmsYHoKunBcuyd6AicyJpKSlnakpWXJDQtJBlb9X;PhpryUqQ4XFLbyHJ8dRl8Q=="];
+var encryptcontent_obfuscate = 0;
+
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/sha256.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/hmac.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/pbkdf2.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/aes.js"></script>
+<script type="text/javascript" src="./assets/javascripts/decrypt-contents.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="TCP-vs-UDP.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: TCP/UDP">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                TCP/UDP
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="internet-models.html" class="md-footer__link md-footer__link--next" aria-label="Next: OSI 7-layer model">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                OSI 7-layer model
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.top", "navigation.path", "navigation.tracking    -", "navigation.expand", "navigation.path", "navigation.footer", "toc.follow", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>

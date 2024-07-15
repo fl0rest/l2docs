@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://xeman.github.io/l2docs/ssl.html">
+        <link rel="canonical" href="https://vaxeman.github.io/l2docs/ssl.html">
       
       
         <link rel="prev" href="ping-traceroute-netstat.html">
@@ -45,8 +45,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Robot:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Robot";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -65,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="lime" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="lime" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ssl" class="md-skip">
+        <a href="#ssl-secure-sockets-layer" class="md-skip">
           Skip to content
         </a>
       
@@ -227,20 +227,17 @@
     
     
     
-      
-        
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -279,6 +276,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="difference-a-cname-alias.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differences Among A, CNAME, ALIAS, and URL records
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -297,20 +315,15 @@
     
     
     
-      
-        
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -327,6 +340,69 @@
             Networking
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="networking/IP-address.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IP address
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ports.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ports
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="protocols.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protocols
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -419,11 +495,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ssl" class="md-nav__link">
+  <a href="#ssl-secure-sockets-layer" class="md-nav__link">
     <span class="md-ellipsis">
-      SSL
+      SSL - Secure Sockets Layer
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="SSL - Secure Sockets Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-ssl-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is an SSL certificate?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-ssl-certificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of SSL certificates:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-verification-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL verification methods:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -464,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="icmp.md" class="md-nav__link">
+      <a href="icmp.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -557,20 +666,145 @@
     
     
     
-      
-        
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linux/permissions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linux/piping.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Piping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linux/file-management.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="linux/archiving-compression.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Archiving and compression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -581,8 +815,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             CMS
           </label>
@@ -643,6 +877,43 @@
   
   
   
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Emails
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Emails
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="emails.html" class="md-nav__link">
         
@@ -653,6 +924,35 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="deliverability.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deliverability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -673,6 +973,134 @@
   
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/what-dns.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/what-emails.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Emails
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/what-networking.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/what-linux.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -702,11 +1130,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ssl" class="md-nav__link">
+  <a href="#ssl-secure-sockets-layer" class="md-nav__link">
     <span class="md-ellipsis">
-      SSL
+      SSL - Secure Sockets Layer
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="SSL - Secure Sockets Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-ssl-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is an SSL certificate?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-ssl-certificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of SSL certificates:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-verification-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL verification methods:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -725,72 +1186,33 @@
                   
 
 
-  <h1>SSL</h1>
+<div id="mkdocs-encrypted-content" style="display:none">trO5MT2CYThYUH+B+2/6DQ==;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</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form" class="md-content__inner md-typeset">
+        <h1>This content is protected with AES encryption. </h1>
+        <p>Contact your administrator for access to this page.</p>
+        <input class="md-input" type="password" id="mkdocs-content-password" placeholder="Password">
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
+</div>
 
-<h2 id="ssl">SSL</h2>
-<p>SSL, or Secure Sockets Layer, is an encryption-based Internet security protocol. SSL encrypts data that is transmitted across the web. SSL is the predecessor to the modern TLS (Transport Layer Security) encryption used today (but people still refer to it as SSL).</p>
-<p>Anyone who tries to intercept this data will only see a garbled mix of characters that is nearly impossible to decrypt.</p>
-<p>SSL initiates an authentication process called a handshake between two communicating devices to ensure that both devices are really who they claim to be. SSL also digitally signs data in order to provide data integrity, verifying that the data is not tampered with before reaching its intended recipient.</p>
-<ul>
-<li>Secure Socket Layer</li>
-<li>SSL encrypts data that is transmitted across the web</li>
-<li>It initiates an auth process called a handshake between the two communicating devices to make sure that both are what they claim to be</li>
-<li>It’s now TLS, but still called SSL</li>
-</ul>
-<p><a href="https://www.cloudflare.com/learning/ssl/what-is-ssl/">https://www.cloudflare.com/learning/ssl/what-is-ssl/</a></p>
-<p>SSL (Secure Sockets Layer) also referred to as the TLS (Transport Layer Security) is a form of asymmetric encryption of data on the internet. </p>
-<p>Originally, data on the Web was transmitted in plaintext that anyone could read if they intercepted the message. For example, if a consumer visited a shopping website, placed an order, and entered their credit card number on the website, that credit card number would travel across the Internet unconcealed. SSL was created to correct this problem and protect user privacy. </p>
-<p>By encrypting any data that goes between a user and a web server, SSL ensures that anyone who tries to intercept this data will only see a garbled mix of characters that is nearly impossible to decrypt. </p>
-<p>What is an SSL certificate?
-An SSL certificate is a text file hosted in a website's origin server which contains the website's public key and devices attempting to communicate with the origin server will reference this file to obtain the public key and verify the server's identity. </p>
-<p>In order to get an SSL certificate, a Certificate Signing Request (CSR) has to be created first. Information that CSR includes is:
-* Fully-Qualified Domain Name (FQDN)
-* Legal name of the organization
-* Division of the Organization
-* City
-* Region
-* Country
-* Email address</p>
-<p>Once a CSR is created, an SSL certificate can then be purchased from the CA. A CA is an outside organization, a trusted third party, that generates and gives out SSL certificates. Once the certificate is issued, it needs to be installed and activated on the website's origin server and when it's activated on the origin server, the website will be able to load over HTTPS and all traffic to and from the website will be encrypted and secure.</p>
-<p>SSL certificates include the following information in a single data file:
-* The domain name that the certificate was issued for
-* Which person, organization, or device it was issued to
-* Which certificate authority issued it
-* The certificate authority's digital signature
-* Associated subdomains
-* Issue date of the certificate
-* Expiration date of the certificate
-* The public key (the private key is kept secret)</p>
-<p>The public and private keys used for SSL are essentially long strings of characters used for encrypting and signing data. Data encrypted with the public key can only be decrypted with the private key during the process known as an SSL handshake:</p>
-<ul>
-<li>Step 1: The SSL/TLS client will send the server a “ClientHello” message that includes information about the browser, the OS, SSL/TLS version and the encryption algorithm that the client supports.</li>
-<li>Step 2: The SSL/TLS server sends back a “ServerHello” message with an agreement on which encryption algorithm they should use during the session, it's digital certificate containing the domain name and certificate authority, and the public key they would use for encryption.</li>
-<li>
-<p>Step 3: The client then confirms that the web server’s digital certificate is valid and issued by a CA. </p>
-<p>Technically, anyone can create their own SSL certificate by generating a public-private key pairing and including all the information mentioned above. Such certificates are called self-signed certificates because the digital signature used, instead of being from a CA, would be the website's own private key.</p>
-<p>But with self-signed certificates, there's no outside authority to verify that the origin server is who it claims to be. Browsers don't consider self-signed certificates trustworthy and may still mark sites with one as "not secure," despite the https:// URL. They may also terminate the connection altogether, blocking the website from loading.</p>
-</li>
-<li>
-<p>Step 4: If the certificate is valid, client extracts the public key and generates a new key for that particular session, then encrypts the session key with the public key and sends it back to the server.</p>
-</li>
-<li>Step 5: The SSL/TLS server decrypts the session key using its private key.</li>
-<li>Step 6: Both the client and the server now use the session key to communicate.</li>
-<li>Step 7: Finally, both the server and the client now exchange the finished messages using the new session key. This message states that the handshake is complete. </li>
-</ul>
-<p>Types of SSL certificates:
-* Number of sites they cover:
-    * Single domain
-    * Wildcard - includes the main domain and all of the subdomains
-    * Multi-domain - applies to multiple unrelated domains
-* Validation level:
-    * Domain validation - business has to prove they control the domain
-    * Organization validation - CA directly contacts a person or business requesting the certificate
-    * Extended validation - full background check of an organization </p>
-<p>SSL verification methods:
-* HTTP validation method:
-    Inside of docroot create a directory .well-known/pki-validation/gsdv.txt, and inside of it add the metatag that SSL provides
-* Email verification
-* DNS verification</p>
+<script type="text/javascript">
+var encryptcontent_id = "encryptcontent_1";
+var encryptcontent_path = "l2docs/ssl.html";
+var decryption_failure_message = "Invalid password.";
+var encryptcontent_keystore = ["/KwA/tOWqAtCdWtU/m97Ug==;LSPL+up66JsOVcGU9y8vS5SVAY1n/aEoQbnmLQ/4Q+y0/OM+9Vu33UXzGKeAvNkDTy0ijDiB6iSoH7IXMFUj3FYrAmsYHoKunBcuyd6AicyJpKSlnakpWXJDQtJBlb9X;PhpryUqQ4XFLbyHJ8dRl8Q=="];
+var encryptcontent_obfuscate = 0;
+
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/sha256.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/hmac.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/pbkdf2.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/aes.js"></script>
+<script type="text/javascript" src="./assets/javascripts/decrypt-contents.js" defer></script>
 
 
 
@@ -821,6 +1243,46 @@ An SSL certificate is a text file hosted in a website's origin server which cont
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="ping-traceroute-netstat.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Basic Tools">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Basic Tools
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="TCP-vs-UDP.html" class="md-footer__link md-footer__link--next" aria-label="Next: TCP/UDP">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                TCP/UDP
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -843,7 +1305,7 @@ An SSL certificate is a text file hosted in a website's origin server which cont
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.top", "navigation.tracking", "navigation.sections", "search.suggest"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.top", "navigation.path", "navigation.tracking    -", "navigation.expand", "navigation.path", "navigation.footer", "toc.follow", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="assets/javascripts/bundle.ad660dcc.min.js"></script>

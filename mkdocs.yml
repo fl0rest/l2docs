@@ -1,11 +1,17 @@
 # Project information
 site_name: J/L2 Docs
-site_url: https://xeman.github.io/l2docs/
+site_url: https://vaxeman.github.io/l2docs/
+
+# Navigation
 nav: 
   - Home: index.md
   - DNS: 
     - 'Common records & lookup': dns.md
+    - 'Differences Among A, CNAME, ALIAS, and URL records': difference-a-cname-alias.md
   - Networking:
+    - 'IP address': networking/IP-address.md   
+    - 'Ports': ports.md
+    - 'Protocols': protocols.md  
     - 'Domains' : domains.md
     - 'Basic Tools': ping-traceroute-netstat.md
     - 'SSL': ssl.md
@@ -14,43 +20,63 @@ nav:
     - 'OSI 7-layer model': internet-models.md
     - 'FTP': FTP.md
     - 'HTTP/HTTPS': HTTP-HTTPS.md
+  - Linux: 
+    - 'Permissions': linux/permissions.md
+    - 'Piping': linux/piping.md
+    - 'File Management': linux/file-management.md
+    - 'Archiving and compression': linux/archiving-compression.md
   - CMS: 
     - 'WordPress': wordpress.md
     - 'Magento': magento.md
-  - Email : emails.md
+  - Emails:  
+    - Email : emails.md
+    - Deliverability: deliverability.md
   - .bashrc: bashrc.md
-  - Ports: ports.md
+  - FAQ:
+    - DNS: faq/what-dns.md
+    - Emails: faq/what-emails.md
+    - Networking: faq/what-networking.md
+    - Linux: faq/what-linux.md
+  
 # Theme
 theme:
   name: material
   features:
     - navigation.top
-    - navigation.tracking
-    - navigation.sections
+    - navigation.path
+    - navigation.tracking    - 
+    - navigation.expand
+    - navigation.path
+    - navigation.footer
+    - toc.follow
     - search.suggest
+    - search.highlight
   palette:
     scheme: slate
     primary: lime
-    
+    accent: cyan    
   font:
-      text: Robot
-      code: Roboto Mono
-
-# Markdown  
-  markdown_extensions:
-  - pymdownx.critic
-  - pymdownx.caret
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
+      text: Roboto
+      code: Roboto Mono  
+markdown_extensions:
+   - pymdownx.superfences
+   - admonition
+   - pymdownx.details
+   - pymdownx.highlight
+   - pymdownx.critic
+   - pymdownx.caret
+   - pymdownx.keys
+   - pymdownx.mark
+   - pymdownx.tilde
+   - abbr
 
 # Plugins      
 plugins:
     - search 
     - offline 
-    #- encryptcontent:
-    #    title_prefix: ''
-    #    search_index: 'clear'
-    #    global_password: 'lozinka1'
+    - encryptcontent:
+        title_prefix: ''
+        search_index: 'clear'
+        global_password: ${{ secrets.VAJFBITER }}
     
 
