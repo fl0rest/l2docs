@@ -76,9 +76,9 @@ markdown_extensions:
 plugins:
     - search 
     - offline 
-    - encryptcontent:
-        title_prefix: ''
-        search_index: 'clear'
-        global_password: ${{ secrets.VAJFBITER }}
+#    - encryptcontent:
+#        title_prefix: ''
+#        search_index: 'clear'
+#        global_password: ${{ secrets.VAJFBITER }}
     
 
