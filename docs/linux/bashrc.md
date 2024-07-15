@@ -26,9 +26,6 @@ alias go='gouser -n'
 
 
 #Functions
-function slow () {
-cuser=$(sup_getusr); limit=$(grep -ish ^pm.max_children /etc/php-fpm.d/$cuser.conf /opt/nexcess/php*u/root/etc/php-fpm.d/$cuser.conf /opt/remi/php*/root/etc/php-fpm.d/$cuser.conf | awk '{print $3}'); k=$(ps uU $cuser | grep pool | grep php-fpm | wc -l); echo -e "\n\n\n============================\n$(date)\n\n == Possible PHP/Apache issues:"; for i in $(ls -1 /opt/nexcess/php*/root/var/log/php-fpm/error.log /var/opt/remi/php*/log/php-fpm/error.log /var/log/php-fpm/error.log /var/log/httpd/error_log 2> /dev/null); do grep --color=never -iHE "$cuser.*max_children|maxclients|scoreboard" $i | tail -n3 ; done; echo -e "\n\n == User quota:\n$(sudo quota -sg $cuser)\n\n == User PHP processes:\n$cuser: $k/$limit threads\n\n\n\n == Server load/uptime:\n$(uptime)\n == Server CPUs: \n$(nproc)\n == Memory info:\n$(free -m | grep -v Swap)\n============================\n";
-}
 
 function dkim () {
     sudo -u iworx ~iworx/bin/domainkeys.pex --domain $1;

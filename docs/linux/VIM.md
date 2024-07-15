@@ -6,7 +6,7 @@ For those needing a quick reference: https://vim.rtorr.com/
 ## A little intro to Vim
 Unlike most graphical text editors Vim employs different _Modes_ to acomplish all of it's goals
 
-You can also run vimtutor for a nice CLI introduction to VIM
+You can also run vimtutor for a noice CLI introduction to VIM
 
 **Command Mode** -- This is the default mode you open files with, it allows you to type commands by pressing ":" and typing whatever you need
 
@@ -23,19 +23,31 @@ ie `gg` places your cursor at the beginning of the file
 
 ## Funs
 General movement
-- `gg` places your cursor at the biginning of the file
+
+- `gg` places your cursor at the beginning of the file
+  
 - `<Shift-g>` places your cursor at the end of the file
+  
 - `e` places your cursor at the end of a word
+  
 - `b` places your cursor at the beginning of a word
+  
 - `w` places your cursor at the beginning of the next word
 
 Saving files
+
 - `:q` closes a file, WITHOUT SAVING!
+  
 - `:w` writes to a file, without closing
+  
 - `:wq` writes and closes a file, you can also use `:x` to do the same thing
+  
 - `<Shift-zz>` writes and closes a file
+  
 - `<Shift-zq>` closes a file, WITHOUT SAVING!
 
 Text manipulation
+
 - `dw` deletes the word your cursor is currently placed on
   
+-- With love, Dougie <3
