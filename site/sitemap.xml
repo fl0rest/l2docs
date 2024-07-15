@@ -21,11 +21,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://vaxeman.github.io/l2docs/bashrc.html</loc>
-         <lastmod>2024-07-15</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://vaxeman.github.io/l2docs/deliverability.html</loc>
          <lastmod>2024-07-15</lastmod>
          <changefreq>daily</changefreq>
@@ -111,7 +106,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://vaxeman.github.io/l2docs/linux/VIM.html</loc>
+         <lastmod>2024-07-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://vaxeman.github.io/l2docs/linux/archiving-compression.html</loc>
+         <lastmod>2024-07-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://vaxeman.github.io/l2docs/linux/bashrc.html</loc>
          <lastmod>2024-07-15</lastmod>
          <changefreq>daily</changefreq>
     </url>

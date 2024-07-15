@@ -25,13 +25,15 @@ nav:
     - 'Piping': linux/piping.md
     - 'File Management': linux/file-management.md
     - 'Archiving and compression': linux/archiving-compression.md
+    - '.bashrc': linux/bashrc.md
+    - 'VIM': linux/VIM.md
   - CMS: 
     - 'WordPress': wordpress.md
     - 'Magento': magento.md
   - Emails:  
     - Email : emails.md
     - Deliverability: deliverability.md
-  - .bashrc: bashrc.md
+  
   - FAQ:
     - DNS: faq/what-dns.md
     - Emails: faq/what-emails.md
