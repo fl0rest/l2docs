@@ -1,82 +1,129 @@
-DNS and most common DNS records, their explanation
+# DNS and most common DNS records, their explanation
+
 DNS stands for Domain Name System. It is a hierarchical and distributed naming system that is fundamental to the functioning of the Internet. DNS is used to translate human-readable domain names into IP addresses, which are numerical identifiers assigned to each device connected to a computer network that uses the Internet Protocol for communication.
+
 A (Address) Record:
 Associates a domain name with an IPv4 address.
+
 AAAA (IPv6 Address) Record:
 Similar to the A record but used for IPv6 addresses.
+
 CNAME (Canonical Name) Record:
 Creates an alias of one domain to another. It is often used for subdomains.
+
 ALIAS Record:
 Usage: Alias records are typically specific to certain DNS providers (e.g., AWS Route 53). They are designed to function similarly to CNAME records but can be used for the apex domain as well as subdomains.
+
 MX (Mail Exchange) Record:
 Specifies mail servers responsible for receiving emails on behalf of a domain.
+
 TXT (Text) Record:
 Holds arbitrary text data and is often used for verification or information purposes. (mostly for proving ownership over domain)
+
 NS (Name Server) Record (where are our DNS zones):
 Specifies authoritative DNS servers for the domain.
+
 PTR (Pointer) Record:
 Used for reverse DNS lookups, associating an IP address with a domain name.
+
 SOA (Start of Authority) Record (kinda like a log):
 Contains administrative information about the domain and the zone.
-Try understanding how DNS actually works, what happens when you type example.com
+
+## Try understanding how DNS actually works, what happens when you type example.com
+
 When you type a domain name like "example.com" into your web browser and press Enter, several steps are involved in the Domain Name System (DNS) resolution process. Here's a simplified overview of how DNS works:
+
 Local Cache Check:
 Your device (computer, smartphone, etc.) checks its local DNS cache to see if it already knows the IP address associated with the domain "example.com." This cache might contain previously resolved domain names and their corresponding IP addresses.
+
 Operating System Resolution:
 If the domain is not found in the local cache or if the cached record has expired, your operating system sends a DNS resolution request to a DNS resolver (usually provided by your Internet Service Provider - ISP).
+
 DNS Resolver Check:
 The DNS resolver, often operated by your ISP or a third-party DNS service (like Google's 8.8.8.8 or Cloudflare's 1.1.1.1), checks its cache to see if it has a record for "example.com."
+
 Root DNS Servers:
 If the resolver doesn't have the information, it contacts the root DNS servers. These servers provide information about the top-level domain (TLD) servers for the requested domain.
+
 TLD DNS Servers:
 The resolver then contacts the TLD servers (e.g., ".com" servers) to obtain information about the authoritative name servers for the domain "example.com."
+
 Authoritative Name Servers:
 The resolver contacts the authoritative name servers for "example.com" to get the specific IP address associated with the domain.
+
 Response to DNS Resolver:
 The authoritative name servers respond with the IP address for "example.com."
+
 Cache Update:
 The resolver caches this information for future use, and the resolved IP address is also cached on your local device.
+
 Connection to the Server:
 Your device now uses the obtained IP address to establish a connection to the web server hosting "example.com."
+
 Web Server Response:
 The web server responds to your request, and your browser renders the website.
+
 This entire process is designed to efficiently translate human-readable domain names into the IP addresses required for network communication. DNS plays a crucial role in the functionality and accessibility of the internet, enabling users to access websites using user-friendly domain names rather than numerical IP addresses.
-Emails
+
+## Emails
+
 DNS records for sending and for receiving Emails
+
 MX records specify the mail servers responsible for receiving emails on behalf of your domain. 
+
 Each MX record consists of a priority and a mail server hostname. The priority indicates the order in which mail servers should be used (lower values indicate higher priority).
 
 TXT records 
-DKIM used for sender verification
+
+### DKIM used for sender verification
+
 DKIM provides a way to digitally sign emails, allowing the recipient to verify that the email was indeed sent by your domain.
+
 DKIM records include a public key that corresponds to a private key used to sign outgoing emails.
+
 DKIM is generated where MX record is pointing
 
-SPF identifies domains that are allowed to send the emails on behalf of your domain or some other identifier. 
+### SPF identifies domains that are allowed to send the emails on behalf of your domain or some other identifier. 
+
 SPF helps prevent email spoofing and phishing 
+
 SPF value > v=spf1 ip4:192.0.2.0 ip4:192.0.2.1 include:examplesender.email -all
+
 Finally, -all tells the server that addresses not listed in the SPF record are not authorized to send emails and should be rejected.
+
 Alternative options here include ~all, which states that unlisted emails will be marked as insecure or spam but still accepted, and, less commonly, +all, which signifies that any server can send emails on behalf of your domain.
 
 Record that we usually set for our customers v=spf1 a mx include:relay.mailchannels.net ~all
+
 DMARC Instructs mail servers what to do if a message fails SPF/DKIM checks.
 
 
-Qmail vs dovecot, their purpose and their log locations
+## Qmail vs dovecot, their purpose and their log locations
 
 Qmail and Dovecot are both software components that play different roles in the email infrastructure. Here's an overview of each and information on where their logs are typically located:
+
 Qmail:
+
 Purpose:
+
 Qmail is a mail transfer agent (MTA) designed to efficiently and securely handle the routing and delivery of email messages.
 It is known for its security features and simplicity in design.
+
 Logs:
+
 Qmail logs are usually found in the /var/log/qmail directory.
+
 Dovecot:
+
 Purpose:
+
 Dovecot is an email server component that provides the functionality for email retrieval (IMAP(mostly used) and POP3 retrieving emails).
 It allows users to access their emails stored on the server.
+
 Logs:
+
 Dovecot logs are typically located in the /var/log/dovecot/ directory.
+
 Nexcess Email Log Location
 Outbound messages from on-server scripts - /var/log/send/current
 Inbound SMTP - /var/log/smtp/current
@@ -85,18 +132,21 @@ IMAP connections (on Legacy SIP) - /var/log/imap4-ssl/current
 POP connections (on Legacy SIP) - /var/log/pop3-ssl/current
 POP and IMAP (on Cloudhost and recent dedicated servers): /var/log/dovecot
 Inbound SpamAssassin scoring - /var/log/maillog
+
 IMAP and POP3 are email protocols used to access and manage emails on remote servers. IMAP enables more advanced email management and synchronization across numerous devices, while POP3 is better suited for configurations where emails need to be accessed only from a single device.
+
 Ports:
 Secure:
 For IMAP, use port 993.
 For POP3, use port 995.
 For SMTP, Use port 587.
+
 Non Secure:
 IMAP 143
 POP3 110
 SMTP 25
 
-Web server status codes
+## Web server status codes
 100 - Information
 These codes indicate that the request was received, continuing process, or the server is awaiting further instructions.
 100 Continue: The server has received the initial part of the request and will continue to process it.

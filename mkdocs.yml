@@ -39,6 +39,7 @@ nav:
     - Emails: faq/what-emails.md
     - Networking: faq/what-networking.md
     - Linux: faq/what-linux.md
+    - Magento: faq/what-magento.md
   
 # Theme
 theme:
@@ -71,6 +72,10 @@ markdown_extensions:
    - pymdownx.mark
    - pymdownx.tilde
    - abbr
+   - attr_list
+   - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 # Plugins      
 plugins:
