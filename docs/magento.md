@@ -130,3 +130,5 @@ php bin/magento deploy:mode:set <mode>
 - Sets the site's deployment mode, where <mode> can be default, developer, or production.
 
 The developer mode gives more verbose error messages (troubleshooting purposes), while production should be used for live environments seeing as it optimizes performance. *Default is like the middle child, no one even knows it exists.*
+
+

@@ -48,6 +48,32 @@ In this mode, file permissions are not represented as characters but a three-dig
 | 6      	| Read +Write           	|   rw-  	|
 | 7      	| Read + Write +Execute 	|   rwx  	|
 
+## Recommended file and directory permissions
+
+!!! warning "Important Notice"
+
+    PHP files should be set to 600.
+
+    Typically files within a /html/ directory should be set to 644 and directories to 755; the typical exception to this is configuration files (such as wp-config.php) where consideration should be made to set those to a lower value such as 600 to prevent unauthorised reading and writing of the file.
+
+### Common Permission Types
+
+`644 :: r-wr–r–` 
+
+* 6 – Owner has read and write permissions;
+* 4 – Group has only read permissions;
+* 4 – Others have only read permissions.
+
+**Info**:  Allows only the owner to make changes to the file or directory.
+
+`755 :: rwxr-xr-x` 
+
+* 7 – Owner has read, write, and execute;
+* 5 – Group has read and execute permissions;
+* 5 – Others have read and execute permissions.
+
+**Info**:  Required to install some scripts or to browse to a required directory.
+
 For example, finding files/directories and changing mode to default values:
 
 `find . -type f -exec chmod 644 {}  \;`

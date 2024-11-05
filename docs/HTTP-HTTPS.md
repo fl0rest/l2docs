@@ -20,7 +20,7 @@ HTTPS uses an TLS/SSL encryption in order to randomize the text being transferre
 
 2. The public key - this key is available to everyone who wants to interact with the server in a way that’s secure. Information that’s encrypted by the public key can only be decrypted by the private key.
 
-HTTPS uses port 443
+HTTPS uses port `443`
 
 #### HTTP RESPONSE/STATUS CODES:
 
