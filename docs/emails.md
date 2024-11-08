@@ -1,16 +1,3 @@
-!!! info "Keywords" 
-
-	MUA (Mail User Agent) - Webmails, Clients (Outlook, Thunderbird)
-	MDA (Mail Delivery Agent)
-    MTA (Mail Transfer Agent)
-    SMTP (Simple Mail Transfer Protocol)
-    IMAP (Internet Message Access Protocol)
-    POP3 (Post Office Protocol 3)
-    MX records (Mail Exchange Records)
-    SPF (Sender Policy Framework)
-    DKIM (Domain Keys Identified Mail)
-    DMARC (Domain-based Message Authentication and Conformance)
-
 ## Process
 
 ### Mail User Agent
@@ -140,6 +127,19 @@ Log locations:
 - POP  (legacy SIP)`/var/log/pop3-ssl/current`
 - POP and IMAP (cloudhost and recent dedicated servers) `/var/log/dovecot`
 - Inbound SpamAssassin scoring `/var/log/maillog`
+
+!!! info "Keywords" 
+
+	* MUA (Mail User Agent) - Webmails, Clients (Outlook, Thunderbird)
+	* MDA (Mail Delivery Agent)
+    * MTA (Mail Transfer Agent)
+    * SMTP (Simple Mail Transfer Protocol)
+    * IMAP (Internet Message Access Protocol)
+    * POP3 (Post Office Protocol 3)
+    * MX records (Mail Exchange Records)
+    * SPF (Sender Policy Framework)
+    * DKIM (Domain Keys Identified Mail)
+    * DMARC (Domain-based Message Authentication and Conformance)
 
 *[MUA]: Mail User Agent
 *[MDA]: Mail Delivery Agent

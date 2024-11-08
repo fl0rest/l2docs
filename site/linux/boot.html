@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://vaxeman.github.io/l2docs/faq/what-emails.html">
+        <link rel="canonical" href="https://vaxeman.github.io/l2docs/linux/boot.html">
       
       
-        <link rel="prev" href="what-dns.html">
+        <link rel="prev" href="../HTTP-HTTPS.html">
       
       
-        <link rel="next" href="what-networking.html">
+        <link rel="next" href="permissions.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Emails - J/L2 Docs</title>
+        <title>Boot Process - J/L2 Docs</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-happens-when-we-write-an-email-and-press-send-how-does-it-arrive-to-the-recipient-and-what-happens-in-the-meantime" class="md-skip">
+        <a href="#linux-boot-process-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Emails
+              Boot Process
             
           </span>
         </div>
@@ -583,19 +583,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -609,7 +609,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Linux
@@ -620,10 +620,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../linux/boot.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Boot Process
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="boot.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -632,6 +652,167 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bios-and-uefi" class="md-nav__link">
+    <span class="md-ellipsis">
+      BIOS and UEFI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BIOS and UEFI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bios-basic-inputoutput-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      BIOS (Basic Input/Output System):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uefi-unified-extensible-firmware-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      UEFI (Unified Extensible Firmware Interface):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bootloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bootloader
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Kernel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daemons-and-init-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daemons and Init Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swap-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      SWAP Memory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pseudo-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudo Filesystem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Permissions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find-vs-locate-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find vs. Locate Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mount-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mount Command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iptables-and-csfapf" class="md-nav__link">
+    <span class="md-ellipsis">
+      IPtables and CSF/APF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sudo-and-wheel-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sudo and Wheel Group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-niceness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Niceness
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#umask" class="md-nav__link">
+    <span class="md-ellipsis">
+      Umask
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -644,7 +825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/permissions.html" class="md-nav__link">
+      <a href="permissions.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -665,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/piping.html" class="md-nav__link">
+      <a href="piping.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -686,7 +867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/file-management.html" class="md-nav__link">
+      <a href="file-management.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -707,7 +888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/archiving-compression.html" class="md-nav__link">
+      <a href="archiving-compression.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -728,7 +909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/bashrc.html" class="md-nav__link">
+      <a href="bashrc.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -749,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/VIM.html" class="md-nav__link">
+      <a href="VIM.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -946,19 +1127,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -972,7 +1153,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             FAQ
@@ -986,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="what-dns.html" class="md-nav__link">
+      <a href="../faq/what-dns.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1004,28 +1185,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Emails
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="what-emails.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../faq/what-emails.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1034,51 +1197,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-happens-when-we-write-an-email-and-press-send-how-does-it-arrive-to-the-recipient-and-what-happens-in-the-meantime" class="md-nav__link">
-    <span class="md-ellipsis">
-      What happens when we write an email and press send? How does it arrive to the recipient and what happens in the meantime?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#which-programs-are-used-when-delivering-emails-what-is-the-muamtamdamsa" class="md-nav__link">
-    <span class="md-ellipsis">
-      Which programs are used when delivering emails? What is the MUA/MTA/MDA/MSA
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#which-ports-are-used-by-individual-mail-services-and-what-would-happen-if-we-disabled-port-25" class="md-nav__link">
-    <span class="md-ellipsis">
-      Which ports are used by individual mail services, and what would happen if we disabled Port 25?
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1091,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="what-networking.html" class="md-nav__link">
+      <a href="../faq/what-networking.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1112,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="what-linux.html" class="md-nav__link">
+      <a href="../faq/what-linux.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1133,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="what-magento.html" class="md-nav__link">
+      <a href="../faq/what-magento.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1171,6 +1289,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1179,27 +1299,141 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-happens-when-we-write-an-email-and-press-send-how-does-it-arrive-to-the-recipient-and-what-happens-in-the-meantime" class="md-nav__link">
+  <a href="#bios-and-uefi" class="md-nav__link">
     <span class="md-ellipsis">
-      What happens when we write an email and press send? How does it arrive to the recipient and what happens in the meantime?
+      BIOS and UEFI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BIOS and UEFI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bios-basic-inputoutput-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      BIOS (Basic Input/Output System):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uefi-unified-extensible-firmware-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      UEFI (Unified Extensible Firmware Interface):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bootloader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bootloader
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#which-programs-are-used-when-delivering-emails-what-is-the-muamtamdamsa" class="md-nav__link">
+  <a href="#linux-kernel" class="md-nav__link">
     <span class="md-ellipsis">
-      Which programs are used when delivering emails? What is the MUA/MTA/MDA/MSA
+      Linux Kernel
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#which-ports-are-used-by-individual-mail-services-and-what-would-happen-if-we-disabled-port-25" class="md-nav__link">
+  <a href="#daemons-and-init-systems" class="md-nav__link">
     <span class="md-ellipsis">
-      Which ports are used by individual mail services, and what would happen if we disabled Port 25?
+      Daemons and Init Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swap-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      SWAP Memory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pseudo-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudo Filesystem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Permissions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find-vs-locate-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find vs. Locate Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mount-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mount Command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iptables-and-csfapf" class="md-nav__link">
+    <span class="md-ellipsis">
+      IPtables and CSF/APF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sudo-and-wheel-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sudo and Wheel Group
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-niceness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Niceness
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#umask" class="md-nav__link">
+    <span class="md-ellipsis">
+      Umask
     </span>
   </a>
   
@@ -1220,11 +1454,181 @@
                   
 
 
-  <h1>Emails</h1>
-
-<h2 id="what-happens-when-we-write-an-email-and-press-send-how-does-it-arrive-to-the-recipient-and-what-happens-in-the-meantime">What happens when we write an email and press send? How does it arrive to the recipient and what happens in the meantime?</h2>
-<h2 id="which-programs-are-used-when-delivering-emails-what-is-the-muamtamdamsa">Which programs are used when delivering emails? What is the MUA/MTA/MDA/MSA</h2>
-<h2 id="which-ports-are-used-by-individual-mail-services-and-what-would-happen-if-we-disabled-port-25">Which ports are used by individual mail services, and what would happen if we disabled Port 25?</h2>
+<h1 id="linux-boot-process-overview">Linux Boot Process Overview</h1>
+<p>The Linux boot process begins with the BIOS or UEFI performing a POST to check hardware functionality. After initializing the hardware, the firmware executes a bootloader (like GRUB) that loads the Linux kernel into memory. The kernel then initializes system resources and starts the init process, which manages the launch of user-space processes.</p>
+<h2 id="bios-and-uefi">BIOS and UEFI</h2>
+<h3 id="bios-basic-inputoutput-system">BIOS (Basic Input/Output System):</h3>
+<p>This is an older type of firmware that helps initialize your computer's hardware when you turn it on. It prepares everything before passing control over to the bootloader, which then starts your operating system.
+It does have some limitations. For example, it can’t boot from hard drives larger than 2.2 TB, which can be a hindrance in today’s world of large-capacity storage.</p>
+<h3 id="uefi-unified-extensible-firmware-interface">UEFI (Unified Extensible Firmware Interface):</h3>
+<p>UEFI is the modern replacement for BIOS. It's designed to be more powerful and flexible.
+One of the main advantages of UEFI is its support for much larger drives—over 2.2 TB—along with quicker boot times. Additionally, it includes advanced features like Secure Boot, which enhances system security by preventing unauthorized software from loading during startup.</p>
+<h2 id="bootloader">Bootloader</h2>
+<p>A bootloader is a piece of software that loads the operating system (OS) into memory when the computer starts. It serves as an intermediary between the firmware (BIOS/UEFI) and the OS.</p>
+<p>Common Bootloaders:</p>
+<ul>
+<li>
+<p><strong>GRUB</strong> (GNU Grand Unified Bootloader): The most widely used bootloader in Linux systems.</p>
+</li>
+<li>
+<p><strong>LILO</strong> (Linux Loader): An older bootloader that's largely obsolete.</p>
+</li>
+<li>
+<p><strong>Syslinux</strong>: A simpler bootloader often used for booting from USB drives.</p>
+</li>
+</ul>
+<h2 id="linux-kernel">Linux Kernel</h2>
+<p>The Linux Kernel is the core of the Linux operating system, managing hardware, system resources, and communication between software and hardware components.</p>
+<p>Four Main Kernel Roles:</p>
+<ol>
+<li>
+<p><strong>Process Management</strong>: Handles process scheduling and CPU time allocation.</p>
+</li>
+<li>
+<p><strong>Memory Management</strong>: Manages system memory and the resources allocated to processes.</p>
+</li>
+<li>
+<p><strong>Device Management</strong>: Provides a communication layer for hardware drivers and userspace applications.</p>
+</li>
+<li>
+<p><strong>File System Management</strong>: Manages file operations and access to various file systems.</p>
+</li>
+</ol>
+<h2 id="daemons-and-init-systems">Daemons and Init Systems</h2>
+<p>A daemon is a background process that runs continuously and handles system or service tasks without user interaction. </p>
+<p>For example:</p>
+<ul>
+<li>
+<p><code>sshd</code>: The SSH daemon that allows secure remote login and command execution over a network.</p>
+</li>
+<li>
+<p><code>httpd</code>: The Apache HTTP Server daemon, which serves web pages to clients over the internet.</p>
+</li>
+<li>
+<p><code>mysqld</code>: The MySQL database server daemon, managing database operations.</p>
+</li>
+<li>
+<p><code>ftpd</code>: The FTP server daemon, which allows file transfers over the File Transfer Protocol.</p>
+</li>
+<li>
+<p><code>rsyslogd</code>: The logging daemon that collects and manages log messages from various system components.</p>
+</li>
+</ul>
+<p>Init is the parent of all processes in a Linux system and is responsible for starting and managing user processes after the kernel has booted.
+The process ID (PID) of the init process is 1.</p>
+<p>Init Systems:</p>
+<ul>
+<li>
+<p><strong>sysVinit</strong>: The traditional init system using run levels to manage services.</p>
+</li>
+<li>
+<p><strong>Upstart</strong>: An event-based replacement for sysVinit, designed for faster booting.</p>
+</li>
+<li>
+<p><strong>systemd</strong>: A modern init system that uses units and targets, providing parallelization and improved service management.</p>
+</li>
+</ul>
+<h2 id="swap-memory">SWAP Memory</h2>
+<p>SWAP memory is a space on a hard drive used as virtual memory when physical RAM is full. </p>
+<ul>
+<li>
+<p><strong>Swap Partition</strong>: A dedicated area of the hard drive designated for swap space.</p>
+</li>
+<li>
+<p><strong>Swap File</strong>: A regular file on a filesystem used for swap space, providing more flexibility than a partition.</p>
+</li>
+</ul>
+<p>To check swap memory on a Linux system, you can use various commands.
+The <code>free -h</code> command provides a human-readable summary of memory usage, including swap. The swapon <code>--show</code> command lists swap devices and their usage, while <code>cat /proc/swaps</code> displays a detailed view of currently used swap spaces.</p>
+<h2 id="pseudo-filesystem">Pseudo Filesystem</h2>
+<p>A pseudo filesystem is a filesystem that doesn't exist on physical storage but represents system information. An example is <code>/proc</code>, which provides insights into system and process information dynamically.</p>
+<p>Another nice example is <code>/tmp</code> which is often used for temporary files.</p>
+<h2 id="linux-permissions">Linux Permissions</h2>
+<p>Linux utilizes a permission system to control access to files and directories. Each file has three types of permissions for three categories of users: <code>owner</code>, <code>group</code>, and <code>others</code> (<code>read</code>, <code>write</code>, <code>execute</code>).</p>
+<p>Permissions are often shown using a string of characters (e.g. <code>rwxr-xr--</code>).</p>
+<p>For more information, please check <a href="https://vaxeman.github.io/l2docs/linux/permissions.html">here</a>.</p>
+<h2 id="find-vs-locate-commands">Find vs. Locate Commands</h2>
+<ul>
+<li>
+<p><code>find</code>: Searches for files in a directory hierarchy based on various criteria. It's slower but more powerful and accurate because it searches the filesystem in real time.</p>
+</li>
+<li>
+<p><code>locate</code>: Uses a pre-built database to find files quickly. It’s faster but may not be up to date. Use <code>updatedb</code> to refresh the database.</p>
+</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">When to use them, you may ask?</p>
+<p>Essentially, select <code>find</code> for detailed or immediate searches and <code>locate</code> for simple, rapid filename lookups.</p>
+</div>
+<h2 id="mount-command">Mount Command</h2>
+<p>The mount command is used to attach a filesystem (like a hard drive or USB) to a specified directory in the Linux directory tree, making it accessible.</p>
+<p>The basic syntax of the mount command is:</p>
+<div class="highlight"><pre><span></span><code><span class="go">mount [options] &lt;source&gt; &lt;mount_point&gt;</span>
+</code></pre></div>
+<p><code>&lt;source&gt;</code>: The device or filesystem to be mounted, such as /dev/sdb1 or a remote filesystem with an appropriate protocol.</p>
+<p><code>&lt;mount_point&gt;</code>: The directory where the filesystem will be attached.</p>
+<p>Example:
+To mount a USB drive located at <code>/dev/sdb1</code> to a directory called <code>/mnt/usb</code>, you would use:</p>
+<div class="highlight"><pre><span></span><code><span class="go">sudo mount /dev/sdb1 /mnt/usb</span>
+</code></pre></div>
+<p>Unmounting</p>
+<p>To detach or unmount a filesystem, you use the umount command followed by the mount point or the device name. This is crucial for safely removing the device, ensuring all data is written back and the filesystem is no longer in use.</p>
+<h2 id="iptables-and-csfapf">IPtables and CSF/APF</h2>
+<p><strong>IPtables</strong>: A user-space utility that allows an administrator to configure firewall rules within the Linux kernel, controlling incoming and outgoing traffic.</p>
+<p><strong>CSF</strong> (ConfigServer Security &amp; Firewall) and <strong>APF</strong> (Advanced Policy Firewall): Tools that use iptables to provide a frontend for managing firewall rules and enhancing security.</p>
+<p>Linux Filesystem Structure</p>
+<ul>
+<li>
+<p><code>/etc/passwd</code>: Stores user account information. 600 permission.</p>
+</li>
+<li>
+<p><code>/etc/shadow</code>: Contains hashed passwords and security information for user accounts. </p>
+<p>It contains the basic information for each user account, such as the user name, user ID, group ID, home directory, login shell, etc. 644 permission.</p>
+</li>
+<li>
+<p><code>/proc</code>: A pseudo-filesystem that provides process and kernel information.</p>
+</li>
+<li>
+<p><code>/etc/fstab</code>: Contains information related to disk drives and filesystems to be mounted.</p>
+</li>
+<li>
+<p><code>/etc/hosts</code>: Maps hostnames to IP addresses.</p>
+<p>For example, if the hosts option is set to:
+hosts: files dns
+then the /etc/hosts file will be searched first, and if no match is found, the DNS server will be queried next.</p>
+</li>
+<li>
+<p><code>/etc/nsswitch.conf</code>: Configures the sources used for name service switch.</p>
+</li>
+</ul>
+<h2 id="sudo-and-wheel-group">Sudo and Wheel Group</h2>
+<p><code>sudo</code>: A command that allows users to run programs with the privileges of another user (usually root), enhancing security.</p>
+<p>The behavior and permissions of <code>sudo</code> are governed by the <code>/etc/sudoers</code> file, where administrators can specify which users or groups have permission to run specific commands with <code>sudo</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">You need to be VERY CAREFUL when running commands as <code>sudo</code>!</p>
+</div>
+<p>Wheel Group: A special user group that grants users the ability to execute commands using <code>sudo</code>.
+Like <code>sudo</code>, the groups and permissions associated with the wheel group can also be configured in the <code>/etc/sudoers</code> file.</p>
+<p>To add a user to the wheel group, you could use the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="go">sudo usermod -aG wheel username</span>
+</code></pre></div>
+<ul>
+<li>To check which groups a user belongs to, you can use the command groups <code>[username]</code> or id <code>[username]</code>.</li>
+</ul>
+<h2 id="linux-niceness">Linux Niceness</h2>
+<p>Linux niceness refers to the priority level of processes in the scheduler. The niceness value ranges from -20 (highest priority) to 19 (lowest priority).
+A lower niceness value means the process is more "greedy" for CPU time, whereas a higher niceness value indicates that the process is less demanding, allowing other processes to receive more CPU time.</p>
+<p>The default nice level when a process is started using the nice command is 10. This means that the process will have a lower priority than the normal processes, which have a nice level of 0.
+The renice command changes the nice level of a running process.
+For example, renice -n 10 1234 will change the nice level of the process with PID 1234 to 10.</p>
+<h2 id="umask">Umask</h2>
+<p>Umask is a user file-creation mask controlling the default file permissions given when a new file or directory is created. It specifies which permission bits should be disabled by default.
+The umask value is subtracted from the maximum permissions for files and directories, which are <code>666</code> and <code>777</code>.</p>
+<details class="question">
+<summary>Which of the following settings for umask ensures that new files have the default permissions <code>-rw-r----</code>?</summary>
+<p>The correct setting for umask that ensures that new files have the default permissions <code>-rw- r-----</code> is <code>0027</code>.
+Since the first digit of the umask value is for the special permissions, such as setuid, setgid, and sticky bit, we need to add a zero at the beginning to indicate that no special permissions are set.</p>
+</details>
 
 
 
@@ -1260,7 +1664,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="what-dns.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: DNS">
+          <a href="../HTTP-HTTPS.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: HTTP/HTTPS">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1270,20 +1674,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                DNS
+                HTTP/HTTPS
               </div>
             </div>
           </a>
         
         
           
-          <a href="what-networking.html" class="md-footer__link md-footer__link--next" aria-label="Next: Networking">
+          <a href="permissions.html" class="md-footer__link md-footer__link--next" aria-label="Next: Permissions">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Networking
+                Permissions
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -20,11 +20,12 @@ nav:
     - 'OSI 7-layer model': internet-models.md
     - 'FTP': FTP.md
     - 'HTTP/HTTPS': HTTP-HTTPS.md
-  - Linux: 
+  - Linux:
+    - 'Boot Process': linux/boot.md 
     - 'Permissions': linux/permissions.md
     - 'Piping': linux/piping.md
     - 'File Management': linux/file-management.md
-    - 'Archiving and compression': linux/archiving-compression.md
+    - 'Archiving and Compression': linux/archiving-compression.md
     - '.bashrc': linux/bashrc.md
     - 'VIM': linux/VIM.md
   - CMS: 
@@ -54,6 +55,7 @@ theme:
     - toc.follow
     - search.suggest
     - search.highlight
+    - content.code.copy
   palette:
     scheme: slate
     primary: lime
