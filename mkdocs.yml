@@ -28,6 +28,8 @@ nav:
     - 'Archiving and Compression': linux/archiving-compression.md
     - '.bashrc': linux/bashrc.md
     - 'VIM': linux/VIM.md
+    - Multiplexers:
+        - 'Introduction to multiplexers': linux/multiplexers.md
   - CMS: 
     - 'WordPress': wordpress.md
     - 'Magento': magento.md
